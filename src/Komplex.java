@@ -107,16 +107,16 @@ public class Komplex {
             return new Komplex[] { new Komplex(0, 0), new Komplex(0, 0) };
 
         // Winkelberechnung für Quadratwurzel (durch 2 geteilt)
-        double winkel = Math.atan2(y, x) / 2;
+        double winkel = Math.atan2(y, x);
 
         // Berechnet die beiden Quadratwurzeln
         Komplex wurzel1 = new Komplex(
-                Math.sqrt(this.getBetrag()) * Math.cos(winkel),
-                Math.sqrt(this.getBetrag()) * Math.sin(winkel)
+                Math.sqrt(this.getBetrag()) * Math.cos(winkel / 2),
+                Math.sqrt(this.getBetrag()) * Math.sin(winkel / 2)
         );
         Komplex wurzel2 = new Komplex(
-                Math.sqrt(this.getBetrag()) * Math.cos((winkel + Math.PI)),
-                Math.sqrt(this.getBetrag()) * Math.sin(winkel + Math.PI)
+                Math.sqrt(this.getBetrag()) * Math.cos(((winkel / 2) + Math.PI)),
+                Math.sqrt(this.getBetrag()) * Math.sin((winkel / 2) + Math.PI)
         );
 
         return new Komplex[] { wurzel1, wurzel2 };
